@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div>
+    <h1 class="my-5">Bienvenue sur {{ titre }} !</h1>
+    {% for i in 1..8 %}
+        <h2 class="ml-5">
+            {{ i }}. Lorem ipsum dolor sit amet.
+        </h2>
+        <p class="ml-5 mb-5">
+            <span>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates corporis debitis aperiam, amet aliquid dignissimos molestias officia, dicta maiores dolorem, architecto omnis dolores quod tenetur quia? Ipsam tempore sapiente qui. Voluptates corporis debitis aperiam, amet aliquid dignissimos molestias officia, dicta maiores dolorem, architecto omnis dolores quod tenetur quia? Ipsam tempore sapiente qui.
+            </span>
+            <span>
+                Debitis, nulla. Adipisci, incidunt. Quam commodi blanditiis ipsum molestiae error cum odio corporis deleniti repellat ullam. Eum earum praesentium voluptatem dolor, quae modi sint quidem cumque ut, libero saepe tempore?
+            </span>
+        </p>
+    {% endfor %}
+</div>
+{% endblock %}
