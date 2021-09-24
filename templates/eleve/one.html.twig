@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div>
+    <h1 class="my-5">Bienvenue sur {{ titre }} !</h1>
+
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title"><strong>{{ un_eleve.nom }}</strong> {{ un_eleve.prenom }}</h4>
+                <p>née le {{ un_eleve.dateDeNaissance.format('d/m/Y') }}, actuelement dans la classe de <strong>{{ un_eleve.classe.nom }}</strong></p>
+                <table>
+                    <tr>
+                        <th>Date</th>
+                        <th>Matière</th>
+                        <th>Note</th>
+                    </tr>
+                    {% for une_note in un_eleve.notes %}
+                    <tr>
+                        <td>{{ une_note.date.format('d/m/Y') }}</td>
+                        <td>{{ une_note.matiere.nom }}</td>
+                        <td>{{ une_note.note }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                <p>Sa moyenne est de : <strong>{{ moyenne }}</strong></p>
+                <a class="btn btn-primary" href="{{ path('create_note_eleve', { id: un_eleve.id }) }}" class="mx-2">Ajouter une note à l'élève</a>
+            </div>
+        </div>
+
+</div>
+{% endblock %}

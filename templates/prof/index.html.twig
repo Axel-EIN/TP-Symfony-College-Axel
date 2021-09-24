@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div>
+    <h1 class="my-5">Bienvenue sur {{ titre }} !</h1>
+
+    {% for un_prof in profs %}
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title"><strong>{{ un_prof.nom }}</strong> {{ un_prof.prenom }}</h4>
+                <p>est le professeur principal de la classe :
+                <ul>{% for une_classe in un_prof.classes %}
+                    <li><strong>{{ une_classe.nom }}</strong></li>
+                    {% endfor %}
+                </ul>
+                <p>née le {{ un_prof.dateDeNaissance.format('d/m/Y') }}<br/>
+                et enseigne la matière : <strong>{{ un_prof.matiere.nom }}</strong></p>
+                <a class="btn btn-danger" href="{{ path('delete_prof', { id: un_prof.id }) }}"
+                    onclick="return confirm('Êtes-vous sûr ?')" class="mx-2">Supprimer</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

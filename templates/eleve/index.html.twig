@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div>
+    <h1 class="my-5">Bienvenue sur {{ titre }} !</h1>
+
+    {% for un_eleve in eleves %}
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title"><strong>{{ un_eleve.nom }}</strong> {{ un_eleve.prenom }}</h4>
+                <p>née le {{ un_eleve.dateDeNaissance.format('d/m/Y') }}, actuelement dans la classe de <strong>{{ un_eleve.classe.nom }}</strong></p>
+                <a class="btn btn-primary" href="{{ path('one_eleve', { id: un_eleve.id }) }}" class="mx-2">Voir les Notes</a>
+                <a class="btn btn-danger" href="{{ path('delete_eleve', { id: un_eleve.id }) }}"
+                    onclick="return confirm('Êtes-vous sûr ?')" class="mx-2">Supprimer</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

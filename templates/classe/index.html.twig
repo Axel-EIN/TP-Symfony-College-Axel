@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div>
+    <h1 class="my-5">Bienvenue sur {{ titre }} !</h1>
+
+    {% for une_classe in classes %}
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title"><strong>{{ une_classe.nom }}</strong></h4>
+                <p>de niveau {{ une_classe.niveau }}ème<br/>
+                et avec pour professeur principal: <strong>{{ une_classe.profPrincipal.nom }} {{ une_classe.profPrincipal.prenom }}</strong></p>
+                <a class="btn btn-danger" href="{{ path('delete_classe', { id: une_classe.id }) }}"
+                    onclick="return confirm('Êtes-vous sûr ?')" class="mx-2">Supprimer</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

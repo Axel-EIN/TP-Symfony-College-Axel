@@ -22,7 +22,7 @@ class HomeController extends AbstractController
     public function afficherReglement()
     {
         return $this->render('home/reglement.html.twig', [
-            'titre' => 'le Réglement intérieur du collège',
+            'titre' => 'le réglement intérieur du collège',
         ]);
     }
 }
